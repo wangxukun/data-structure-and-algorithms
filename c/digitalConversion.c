@@ -5,6 +5,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/*
+ * 把一个数字的个位调换到首位
+ */
+int swop(int);
+/*
+ * 查看一个整数是几位数
+ */
+int bit(int);
 int main(void)
 {
 	for(int i=4; i<1000; i++)
@@ -17,4 +25,14 @@ int main(void)
 	printf("\n");
 
 	return EXIT_SUCCESS;
+}
+int swop(int i)
+{
+    int a = i %　10;
+    int b = i / 10;
+
+}
+int bit(int i)
+{
+
 }
