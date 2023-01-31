@@ -4,35 +4,53 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 /*
  * 把一个数字的个位调换到首位
  */
-int swop(int);
+int swapDigits(int);
 /*
- * 查看一个整数是几位数
+ * 返回一个整数的位数
  */
 int bit(int);
 int main(void)
 {
-	for(int i=4; i<1000; i++)
-	{
-		if(i % 10 == 4)
-			printf("%3d ",i);
-		if(i % 100 == 94)
-			puts("");
-	}
-	printf("\n");
+    int n = 1000000;
+    while ( n > 10){
+        if(n % 10 != 4){
+            n--;
+            continue;
+        }
+        int a;
+        a = swapDigits(n);
+        if(a == 4*n){
+            printf("The eligible number is %d\n",n);
+            break;
+        }
+        n--;
+    }
 
 	return EXIT_SUCCESS;
 }
-int swop(int i)
+int swapDigits(int d)
 {
-    int a = i %　10;
-    int b = i / 10;
-
+    int a = d % 10;
+    int b = d / 10;
+    int i = bit(d);
+    int x = pow(10,i-1);
+    return (a*x + b);
 }
-int bit(int i)
+int bit(int d)
 {
+    int bit = 1;
+    int n = 1;
+    n = d / 10;
 
+    while(n > 0)
+    {
+        bit++;
+        n /= 10;
+    }
+    return bit;
 }
