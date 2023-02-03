@@ -35,7 +35,7 @@ int main(void){
     }
     printf("Bye!\n");
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 char * s_gets(char *st, int n){
